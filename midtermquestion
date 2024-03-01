@@ -1,0 +1,12 @@
+def one_off(word):
+    number = 0 #how many words have been found
+    for i in range(len(word)): #going through every letter in the word
+        for let in "abcdefghijklmnopqrstuvwxyz": #for each letter in the word, going through all of the letters in the alphabet
+            if i != len(word)-1: #checking to make sure word[i+1] wouldn't be out of range
+                test_word = word[0:i] + let + word[i+1:] #adding together the letters before the changed letter, the changed letter, and the letters after the changed letter
+            else:
+                test_word = word[0:i] + let #this happens when i is the end of the word, so there is no need to add letters after
+            if (test_word in ENGLISH_WORDS) and (test_word != word): #if test word is a word and it's different from the original word
+                number += 1 #increasing the number of words found
+                print(test_word) #printing the one-off word
+    print(number)
